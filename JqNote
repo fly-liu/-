@@ -6,3 +6,4 @@ var obj = {
   length : 3
 }
 Array.prototype.slice.call(obj);  // ["a", "b", "c"]
+
