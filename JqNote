@@ -1,0 +1,8 @@
+Array.prototype.slice.call 可以将伪数组转化为真正的数组
+var obj = {
+  0 : 'a',
+  1 : 'b',
+  2 : 'c',
+  length : 3
+}
+Array.prototype.slice.call(obj);  // ["a", "b", "c"]
