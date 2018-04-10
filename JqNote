@@ -6,4 +6,24 @@ var obj = {
   length : 3
 }
 Array.prototype.slice.call(obj);  // ["a", "b", "c"]
+先将传入的第一个参数转换为数组，再调用slice
 
+slice 有两个用法，一个是String.slice;一个是Array.slice；第一个返回的是字符串，第二个返回的是数组
+Array.slice(start,end) 可以从已有的数组中返回选定的元素
+
+apply && call --
+apply和call都是为了改变某个函数运行时的上下文而存在的（改变函数内部的this指向）
+调用apply或call方法this指向第一个参数，apply的第二个参数是一个数组，call从第二参数到后面的所有参数都是数组的里面的元素
+var numbers = [5, 458 , 120 , -215];
+var maxInNumbers = Math.max.apply(Math,nubers); // 458
+var minInNumbers = Math.min.call(Math,5, 458 , 120 , -215); // -215
+
+验证是否是数组：
+function isArray(obj) {
+  return Object.prototype.toString.call(obj);  // [Object Array]
+}
+
+bind --改变函数体内的this指向
+bind会创建一个新函数，称为绑定函数，当调用这个函数的时候，绑定函数会以创建它时传入bind（）方法的第一个参数作为this，传入bind()方法的第二个及以后的参数加上绑定函数运行时本身的参数按照顺序作为原函数的参数来调用原函数;
+
+bind与apply、call最大的区别就是：bind不会立即调用，其他两个会立即调用
