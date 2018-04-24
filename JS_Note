@@ -1,0 +1,44 @@
+JSON对象：我们通常把JavaScript字面量对象理解成JSON对象，JSON是一种描述数据交换格式，是JavaScript的一个子集，
+JSON.stringify(value [, replacer] [, space]) -- JSON序列化,将JSON对象转换为字符串
+参数：
+  value：要转换成JSON字符串的原始值、对象或数组
+  replacer：可选参数，一个数组或函数
+  space：可选参数,一个数值或一个字符串
+返回：JSON格式的字符串，代表value的值，同时通过了replacer的过滤，以及根据space进行了格式化
+
+JSON.parse(s[, reviver]) -- JSON解析，JSON反序列化，解析JSON格式的字符串
+参数：
+  s,要解析的字符串
+  reviver,可选参数，用来转换解析值的可选函数
+
+parseInt() 和 Number() 的区别：
+
+匿名闭包：函数内部的代码一直存在于闭包内，在整个运行周期内，该闭包都保证了内部的代码处于私有状态。
+(function(){}());  匿名函数后面的括号表示，创建一个立即执行的函数表达式
+
+Object.prototype.hasOwnProperty() -- 判断一个对象是否包含自定义属性而不是原型链上的属性,hasOwnProperty 是 JavaScript 中唯一一个处理属性但是不查找原型链的函数
+
+原型链：
+原型对象也是普通对象，并且也有可能有自己的原型，如果一个原型对象的原型不为null，我们就称为原型链
+
+构造函数与对象之间的关系:
+每一个Object都有一个__proto__ 属性，指向它的构造函数的prototype属性，构造函数也有__proto__，也就是Function.prototype,而Function.prototype的__proto__指向Object.prototype
+
+三种函数类型：函数声明，函数表达式，构造函数
+
+自由变量：
+
+上下文的概念：
+
+作用域：
+
+作用域链：
+
+上下文和作用域链的区别：
+
+函数表达式和函数声明的区别：
+
+闭包的概念：
+1.即使创建它的上下文已经销毁，它仍然存在（比如，内部函数从父函数中返回）
+2.在代码中引用自由变量。（自由变量：在函数中访问全局变量就相当于是在访问自由变量）
+
