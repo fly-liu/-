@@ -1,3 +1,29 @@
+$()是什么?
+$()是jQuery函数的别称。$()可用于将任何对象包装成jQuery对象，然后就可以调用定义在jQuery对象上的属性、方法
+
+如何找到HTML select标签的选中项?
+$('[type=select]:selected');
+
+$(this) 和 this 关键字在 jQuery 中有何不同?
+$(this)返回的是jQuery对象，可以调用jQuery的方法。
+this代表当前元素，是JavaScript对象表示当前DOM对象，不能使用它调用jQuery方法。
+
+$(document).ready()和window.onload()有什么区别?
+1.window.onload()方法是在页面中所有元素（包括元素关联的文件）完全加载到浏览器后才执行。
+2.$(document).ready()方法可以在DOM载入完成时执行，并调用绑定的函数。
+
+jQuery中$.get()提交和$.post()提交有什么区别?
+1.$.get()使用GET方法来进行异步请求。$.post()方法使用POST方法进行请求
+2.get请求会将参数跟在URL后进行传递，post请求则是作为http消息实体发送给服务器，对用户不可见
+3.get方式传输的数据大小不能超过2KB而post大很多
+4.get方式请求会被浏览器缓存起来，因此有安全问题
+
+jQuery的bind,live,delegate,on之间有什么区别?
+bind(),主要用于给选择到的元素上绑定事件，当页面加载完才能进行bind(),只能给调用它的时候已经存在的元素绑定事件，不能给未来新增的元素绑定事件
+live(),主要用于给选择到的元素上绑定事件,使用live不能在层次比较深，连缀的DOM遍历方法后面使用
+delegate(),将监听事件绑定在就近的父级元素上
+on(),将监听事件绑定到指定元素上,整合了之前的三种方式的新事件绑定机制
+
 Array.prototype.slice.call 可以将伪数组转化为真正的数组
 var obj = {
   0 : 'a',
