@@ -1,4 +1,11 @@
-盒子模型：盒子模型指一个元素占有的空间大小，包括元素的内容，元素的内边距，边框，外边距，这4部分共同组成了css的盒模型
+盒子模型：
+盒子模型由4个部分组成，content,padding,border,margin
+IE盒子模型的content部门包括padding,border
+W3C盒子模型不包括padding,border
+
+border-box 和 content-box的区别：
+box-sizing:border-box;让内容的宽高包含padding和border
+box-sizing:content-box;内容不包含padding和border
 
 行内元素？
 a,span,img,strong,b,em,i
@@ -6,8 +13,11 @@ a,span,img,strong,b,em,i
 h1~h6,p,div,ul,ol,dl,iframe,article,section,header,footer,aside,nav
 
 css实现垂直水平居中？
-position:relative + position:absolute
-text-align + vertical-align
+1.使用position:relative + position:absolute
+2.使用display:table + display:table-cell;设置子元素 text-align + vertical-align
+3.flex布局，display:flex;justify-content:center;align-items:center;
+4.line-height和height设置成一样 + text-align:center;
+5.父元素设置position:relative,子元素设置position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
 
 src和href的区别？
 href指向网络资源所在位置，建立和当前元素或当前文档之间的链接，用于超链接
