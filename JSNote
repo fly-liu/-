@@ -1,3 +1,19 @@
+渐进增强
+针对低版本浏览器进行构建页面，保证最基本的功能，对高版本的浏览器进行效果、交互等优化达到更好的用户体验
+
+优雅降级
+一开始构建完整的功能，再针对低版本浏览器进行兼容
+
+sessionStorage,localStorage,cookie之间的区别
+共同点：用于浏览器端存储的缓存数据
+不同点：
+  1.当设置了cookie后，数据会发送到服务器端，造成一定的宽带浪费；sessionStorage,localStorage会保存到本地
+  2.cookie数据不能超过4KB，web Storage数据存储可以达到5M
+  3.cookie只在设置的过期时间之前有效，即使关闭浏览器；sessionStorage仅在关闭浏览器之前有效；localStorage数据存储永远有效
+  4.cookie和localStorage在同源同窗口中都是共享的；sessionStorage在不同的浏览器窗口不共享
+  
+  
+
 JSON对象：我们通常把JavaScript字面量对象理解成JSON对象，JSON是一种描述数据交换格式，是JavaScript的一个子集，
 JSON.stringify(value [, replacer] [, space]) -- JSON序列化,将JSON对象转换为字符串
 参数：
