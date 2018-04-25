@@ -12,7 +12,14 @@ sessionStorage,localStorage,cookie之间的区别
   3.cookie只在设置的过期时间之前有效，即使关闭浏览器；sessionStorage仅在关闭浏览器之前有效；localStorage数据存储永远有效
   4.cookie和localStorage在同源同窗口中都是共享的；sessionStorage在不同的浏览器窗口不共享
   
-  
+JavaScript的typeof返回哪些数据类型?
+Object,number,function,boolean,undefined
+
+强制类型转换：
+parseInt(),parseFloat(),Number()
+
+隐式类型转换：
+--,+n,==
 
 JSON对象：我们通常把JavaScript字面量对象理解成JSON对象，JSON是一种描述数据交换格式，是JavaScript的一个子集，
 JSON.stringify(value [, replacer] [, space]) -- JSON序列化,将JSON对象转换为字符串
