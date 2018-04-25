@@ -1,3 +1,24 @@
+HTML5 为什么只需要写 !DOCTYPE HTML
+HTML5 不基于 SGML，因此不需要对DTD进行引用，但是需要doctype来规范浏览器的行为（让浏览器按照它们应该的方式来运行）；
+而HTML4.01基于SGML,所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。
+
+Doctype作用？标准模式与兼容模式各有什么区别?
+!DOCTYPE声明位于位于HTML文档中的第一行，处于html 标签之前。告知浏览器的解析器用什么文档标准解析这个文档。
+标准模式的排版 和JS运作模式都是以该浏览器支持的最高标准运行。在兼容模式中，页面以宽松的向后兼容的方式显示,模拟老式浏览器的行为以防止站点无法工作
+
+cookie是在浏览器和服务器之间传递数据的。
+sessionStorage和localStorage存储空间更大
+sessionStorage和localStorage有更多丰富易用的接口，cookie需要自己封装接口
+
+如何实现浏览器内多个标签页之间的通信?
+调用localStorage，cookie等本地存储方式
+
+隐藏元素的方式：
+opacity:设置元素的透明度
+visibility:hidden; 设置元素不可见，但会占据位置
+display:none; 让元素隐藏
+
+
 语义化 HTML: 用最恰当的HTML 元素标记内容
 优点: 1.提高访问性
       2.SEO优化
