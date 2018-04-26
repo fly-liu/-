@@ -13,7 +13,7 @@ sessionStorage,localStorage,cookie之间的区别
   4.cookie和localStorage在同源同窗口中都是共享的；sessionStorage在不同的浏览器窗口不共享
   
 JavaScript的typeof返回哪些数据类型?
-Object,number,function,boolean,undefined
+Object,number,function,boolean,string,undefined
 
 强制类型转换：
 parseInt(),parseFloat(),Number()
