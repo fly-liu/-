@@ -34,7 +34,9 @@ JSON.parse(s[, reviver]) -- JSON解析，JSON反序列化，解析JSON格式的�
   s,要解析的字符串
   reviver,可选参数，用来转换解析值的可选函数
 
-parseInt() 和 Number() 的区别：
+parseInt(),parseFloat() 和 Number() 的区别：
+Number()的强制类型转换与parseInt()和parseFloat()方法的处理方式相似，只是它转换的是整个值，而不是部分值.
+parseInt()和parseFloat()方法只转换第一个无效字符之前的字符串。如“3.4.5”被转换成“3.4”,用Number()进行强制类型转换将返回NAN
 
 匿名闭包：函数内部的代码一直存在于闭包内，在整个运行周期内，该闭包都保证了内部的代码处于私有状态。
 (function(){}());  匿名函数后面的括号表示，创建一个立即执行的函数表达式
