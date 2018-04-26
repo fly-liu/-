@@ -23,6 +23,10 @@ src和href的区别？
 href指向网络资源所在位置，建立和当前元素或当前文档之间的链接，用于超链接
 src指向外部资源的位置，在请求src资源时会将指向的资源下载应用到当前文档内，当浏览器解析到该元素时，会暂停其他资源的下载和处理，类似将所有指向资源嵌入文档中
 
+link和@import的区别
+link引用CSS时，在页面载入时同时加载；@import需要页面网页完全载入以后加载
+ink支持使用Javascript控制DOM去改变样式；而@import不支持
+
 content-box和border-box有什么区别
 box-sizing:border-box;将border和padding包含进原始的尺寸中，统一浏览器差异
 
