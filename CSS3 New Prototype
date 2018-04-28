@@ -1,7 +1,7 @@
 盒子模型：
 盒子模型由4个部分组成，content,padding,border,margin
-IE盒子模型的content部门包括padding,border
-W3C盒子模型不包括padding,border
+IE盒子模型的content部分包括padding,border
+W3C盒子模型content部分不包括padding,border
 
 border-box 和 content-box的区别：
 box-sizing:border-box;让内容的宽高包含padding和border
@@ -36,8 +36,17 @@ box-sizing:border-box;将border和padding包含进原始的尺寸中，统一浏
 3.在父容器里加一个空标签，并设置clear:both;
 4.使用伪类元素，给伪类元素加clear:both;
 
+
+特指度：
+I - id
+C - class
+E - element
+针对一个css选择器表达式，遇到一个id就往特指度数值中加100，遇到一个class就往特指度数值中加10，遇到一个element就往特指度数值中加1
+
 伪类选择器的优先级：
 根据使用伪类的选择器确定，会比使用伪类的选择器的优先级高一层
+class选择器和属性选择器的优先级：
+属性选择器比class选择器优先级高
 
 animation:name duration timing-function delay iteration-count direction fill-mode play-state; -- 动画
 animation-name -- 要绑定到选择器的关键帧的名称
