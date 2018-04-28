@@ -1,0 +1,56 @@
+1.oninput，当元素获得用户输入时运行脚本。这个事件在IE6/7/8中表现不兼容，在IE中，支持的是onpropertychange
+兼容性写法： element.oninput = element.onpropertychange = fn;
+
+2.document.getElementsByClassName(),IE6/7/8不兼容
+封装函数：
+function fn(str){
+    //1.区分浏览器。如果是支持document.getElementsByClassName()我就用，这个方法。
+    if(document.getElementsByClassName){
+        //var arrStr = document.getElementsByClassName(str);
+        //return arrStr;
+        return document.getElementsByClassName(str);
+    }
+    //2.如果不支持。
+    //(1).获取页面上所有的标签（元素节点），然后判断。
+    var arrAllElements = document.getElementsByTagName("*");
+    //(2).定义一个新数组
+    var arr = [];
+    //(3).循环判断className这个属性，如果==我们传过来的参数，那么放进数组。
+    for(var i=0;i<arrAllElements.length;i++){
+            //需求：判断一个字符串中是否包含另外一个字符串
+            //步骤：
+            //1.把字符串变成数组。
+        var arrClassName = arrAllElements[i].className.split(" ");
+            //2.比较数组中的每一个元素，如果有一个和str相等，那么把所在的元素放进数组
+        for(var j=0;j<arrClassName.length;j++){
+            if(arrClassName[j] == str){
+                arr.push(arrAllElements[i]);
+            }
+        }
+    }
+    //(4).如果不是，不用管。
+    //(5).返回数组
+    return arr;
+}
+
+3.获取下一个兄弟节点
+nextSibling: 主要是IE678支持。（获取下一个元素节点）但是在火狐谷歌IE9+获取下一个节点。（包括文本和换行）
+nextElementSibling: 火狐谷歌IE9+支持获取下一个兄弟元素节点，但在IE678中不存在。
+兼容写法：
+var elNext = box.nextElementSibling || box.nextSibling;
+
+4.获取上一个兄弟节点
+previousSibling
+previousElementSibling
+兼容写法：
+var elPrev = box.previousElementSibling || box.previousSibling;
+
+5.获取第一个子节点：
+var firstElement = box.firstElementChild || box.firstChild;
+
+6.获取最后一个节点：
+var lastElement = box.lastElementChild || box.lastChild;
+
+
+
+
