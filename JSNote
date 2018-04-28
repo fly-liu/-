@@ -143,3 +143,60 @@ JavaScript中实现继承的方法：
 外部函数如何访问其他函数内部的函数：
 若是外部想要调用内部的函数则需要建立对内部函数的引用，将内部函数名直接赋值给外部的引用即可以调用内部函数
 
+原生js写ajax：
+  ajax也分下面4步
+  1.创建ajax对象
+  2.连接到服务器
+  3.发送请求（告诉服务器我要什么文件）
+  4.接收返回值
+封装ajax：
+function ajax(url,fnSucc) {
+  //1.创建ajax对象
+  if(window.XMLHttpRequest){
+    var oAjax = new XMLHttpRequest();
+  }else {
+    var oAjax = new ActiveXObject("Microsoft.XMLHTTP");//IE6浏览器创建ajax对象
+  }
+  //2.连接服务器
+  oAjax.open("GET",url,true);//把要读取的参数的传过来
+  //open(方法、文件名、异步传输）
+       //方法：传输方式是get方式还是post方式。
+        //文件名:告诉服务器要读哪个文件
+        //异步传输
+          //异步：多件事一件一件的做
+          //同步：多件事情一起进行
+          //但是js里面的同步和异步和现实的同步异步相反。
+            //同步：多件事一件一件的做
+            //异步：多件事情一起进行
+        //ajax天生是用来做异步的
+  
+  //3.发送请求
+  oAjax.send();
+  //4.接收返回
+  oAjax.onreadystatechange = function() {//客户端和服务器端有交互的时候会调用onreadystatechange
+    if(oAjax.readyState == 4) {
+      if(oAjax.status == 200) {//判断是否成功,如果是200，就代表成功
+        fnSucc(oAjax,responseText);//成功的时候调用这个方法
+      }else {
+       alert("失败");
+      }
+    }
+    //oAjax.readyState  //浏览器和服务器，进行到哪一步了。
+      //0->（未初始化）：还没有调用 open() 方法。
+      //1->（载入）：已调用 send() 方法，正在发送请求。
+      //2->载入完成）：send() 方法完成，已收到全部响应内容。
+      //3->（解析）：正在解析响应内容。
+      //4->（完成）：响应内容解析完成，可以在客户端调用。
+  }
+  
+}
+
+调用方法：
+window.onload = function() {
+  var oBtn = document.getElementById("btn1");
+  oBtn.onclick = function() {
+    ajax('a.txt',function(str){
+      alert(str);
+    });
+  }
+}
