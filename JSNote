@@ -93,7 +93,22 @@ json和jsonp的区别：
 json是一种数据格式
 jsonp是一种数据调用方式
 
-jsonp用的哪种请求方式，script标签用什么方式请求？
+jsonp,script标签用什么方式请求方式？
+是使用get请求方式
+
+HTTP和HTTPS的区别：
+HTTP：是互联网上应用最为广泛的一种网络协议，是一个客户端和服务器端请求和应答的标准（TCP），用于从WWW服务器传输超文本到本地浏览器的传输协议，
+      它可以使浏览器更加高效，使网络传输减少。
+HTTPS：是以安全为目标的HTTP通道，简单讲是HTTP的安全版，即HTTP下加入SSL层，HTTPS的安全基础是SSL，因此加密的详细内容就需要SSL。
+HTTP协议传输的数据都是未加密的，也就是明文的，因此使用HTTP协议传输隐私信息非常不安全，为了保证这些隐私数据能加密传输，
+于是网景公司设计了SSL（Secure Sockets Layer）协议用于对HTTP协议传输的数据进行加密，从而就诞生了HTTPS。
+HTTP 和 HTTPS 的不同之处：
+HTTP 的 URL 以 http:// 开头，而 HTTPS 的 URL 以 https:// 开头
+HTTP 是不安全的，而 HTTPS 是安全的
+HTTP 标准端口是 80 ，而 HTTPS 的标准端口是 443
+在 OSI 网络模型中，HTTP 工作于应用层，而 HTTPS 工作在传输层
+HTTP 无需加密，而 HTTPS 对传输的数据进行加密
+HTTP 无需证书，而 HTTPS 需要CA认证证书
 
 GET和POST数据传输方式：
 GET和POST都是http协议定义的。
