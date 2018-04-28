@@ -1,3 +1,5 @@
+谈谈我在项目中遇到的兼容性问题？
+
 1.oninput，当元素获得用户输入时运行脚本。这个事件在IE6/7/8中表现不兼容，在IE中，支持的是onpropertychange
 兼容性写法： element.oninput = element.onpropertychange = fn;
 
