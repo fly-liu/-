@@ -36,6 +36,9 @@ box-sizing:border-box;将border和padding包含进原始的尺寸中，统一浏
 3.在父容器里加一个空标签，并设置clear:both;
 4.使用伪类元素，给伪类元素加clear:both;
 
+伪类选择器的优先级：
+根据使用伪类的选择器确定，会比使用伪类的选择器的优先级高一层
+
 animation:name duration timing-function delay iteration-count direction fill-mode play-state; -- 动画
 animation-name -- 要绑定到选择器的关键帧的名称
 animation-duration -- 指定需要多少秒或毫秒完成
