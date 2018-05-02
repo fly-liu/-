@@ -153,5 +153,192 @@ var o = {
 }
 Object.is();  // 比较两个值是否严格相等，与严格相等（===）不同之处是：+0不等于-0，NaN等于自身
 ES5比较两个值是否相等，有两个运算符：相等运算符（==）和严格相等运算符（===）
+Object.assign(); // 将源对象的所有可枚举属性复制到目标对象，第一个参数是目标对象，后面的参数都是源对象
+var target = {a:1};
+var source1 = {b:2};
+var source2 = {c:3};
+Object.assign(target,source1,source2);
+target // {a:1,b:2,c:3}
+
+常见用途：
+为对象添加属性：
+class Point() {
+  constructor(x,y) {
+    Object.assign(this,{x,y});
+  }
+}
+为对象添加方法：
+Object.assign(SomeClass.prototype,{
+ someMethod(arg1,arg2){
+   ...
+ }
+})
+等同于
+SomeClass.prototype.someMethod = function(arg1,arg2) {
+  ...
+}
+
+ES6有5种属性的遍历的方法：
+1.for... in  //循环遍历对象自身的和继承的可枚举属性
+2.Object.key(obj); //返回一个数组，包括对象自身的（不包含继承的）所有可枚举属性
+3.Object.getOwnPropertyNames(obj);  // 返回一个数组，包含对象自身的所有属性
+4.Object.getOwnpropertySymbols(obj);  // 返回一个数组，包含对象自身的所有Symbol属性
+5.Reflect.ownKeys(obj);  // 返回一个数组，包含对象自身的所有属性，不管属性名是Symbol还是字符串，也不管是否可枚举
+
+Set结构：类似于数组，但成员的值都是唯一的
+属性和方法：
+Set.prototype.constructor;  // 构造函数，默认就是Set函数
+Set.prototype.size;  // 返回Set实例的成员总数
+add(value); // 添加某个值，返回Set结构本身
+delete(value); // 删除某个值，返回布尔值，表示删除是否成功
+has(value); // 返回布尔值，表示参数是否是Set的成员
+clear(); // 清除所有成员，没有返回值
+
+在遍历中同步改变原来的Set结构：
+方法一：
+let set = new Set([1,2,3]);
+set = new Set([...set].map(val => val*2)); // set的值是2,4,6
+方法二：
+let set = new Set([1,2,3]);
+set = new Set(Array.from(set,val = val*2)); //  set的值是2,4,6
+
+Map结构：类似对象，但是“键”的范围不限于字符串，各种类型的值（包括对象）都可以当作键
+属性和方法：
+size属性：返回Map结构的成员总数
+set(key,value):设置key所对应的键值
+get(key):读取key对应的键值，如果找不到key返回undefined
+has(key):返回布尔值，表示某个键是否在Map结构中
+delete(key):删除某个键，删除成功返回true，删除失败返回false
+clear():清除所有成员
+
+Iterator接口：数据结构只要部署了Iterator接口，就称这种结构为“可遍历”
+原生具备Iterator接口的数据结构有：
+Array,Map,Set,String,TypedArray,函数的arguments对象，NodeList对象
+
+Class的语法：
+  构造函数：
+  function Point(x,y) {
+    this.x = x;
+    this.y = y;
+  }
+  Point.prototype.toString = function() {
+    return '('+this.x+','+this.y+')';
+  }
+  var p = new Point(1,2);
+  
+  定义类：
+  class Point {
+    constructor(x,y) {
+      this.x = x;
+      this.y = y;
+    }
+    toString() {
+      return '('+this.x+','+this.y+')';
+    }
+  }
+类的方法之间不需要加逗号分隔，加了会报错
+constructor方法是类的默认方法，通过new命令生成对象实例时自动调用该方法。一个类必须有constructor方法，如果没有显式定义，会默认添加一个空的constructor方法
+
+Class的静态方法：
+
+类相当于实例的原型，所有在类中定义的方法都会被实例继承。如果在一个方法前面加上static关键字，表示该方法不会被实例继承，而是直接通过类调用，称为“静态方法”
+类的静态属性，定义在Class本身的属性，而不是定义在实例对象上的属性
+class Foo {
+  static classMethod() {
+    return 'hello';
+  }
+}
+Foo.prop = 1; //静态属性写法1
+Foo.classMethod();  // 'hello'  
+Foo.prop;  // 1
+  
+Class的实例属性：
+class MyClass() {
+  myProp = 42;
+  constructor() {
+    console.log(this.myProp);  // 42
+  }
+}
+Class的静态属性：只要在实例属性前面加上static关键字就可以了
+class MyClass() {
+ static myStaticProp = 42; // 静态属性,写法2
+ constructor() {
+   console.log(MyClass.myStaticProp); //42
+ }
+}
+
+Class的继承
+class Point {
+  constructor(x,y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+class ColorPoint extends Point {
+  constructor(x,y,color) {
+    super(x,y);  // 调用父类的constructor(x,y)
+    this.color = color;
+  }
+  toString() {
+    return this.color + ' ' + super.toString(); 
+  }
+}
+super关键字可以当函数使用，也可以当对象使用
+super作为函数调用时代表父类的构造函数。子类的构造函数必须执行一次super函数。
+super作为对象时在普通方法中指向父类的原型对象；在静态方法中指向父类
+
+Module语法：
+ES6通过export命令显式指定输出代码，import命令输入
+一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果希望外部能够读取模块内部的某个变量，必须使用export关键字输出该变量。
+export 写法1：
+export var firstName = 'Michael';
+export var lastName = 'Jackson';
+
+export 写法2：
+export {firstName,lastName};
+
+import命令：
+import {firstName,lastName} from './profile';
+
+编程风格：
+数组：
+// bad 
+const len = items.length;
+const itemsCopy = [];
+let i;
+for(i = 0;i < len;i++) {
+  itemsCopy[i] = items[i];
+}
+// good
+const itemsCopy = [...items];
+使用Array.from()方法将类似数组对象转为数组：
+const foo = document.querySelectorAll('.foo');
+const nodes = Array.from(foo);
+
+Map结构：
+区分Object和Map，只有模拟实体对象时才使用Object。如果只需要key:value的数据结构，则使用Map。因为Map有内建的遍历机制。
+let map = new Map(arr);
+for(let key of map.keys()) {
+  console.log(key);
+}
+
+for(let value of map.values()) {
+  console.log(value);
+}
+
+for(let item of map.entries()) {
+  console.log(item[0],item[1]);
+}
+
+用Class取代需要prototype的操作
 
 
+  
+  
+  
+  
+  
+  
+  
+  
+  
