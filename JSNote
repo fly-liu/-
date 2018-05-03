@@ -143,5 +143,6 @@ JavaScript中实现继承的方法：
 3.原型链和call()或apply()结合
 4.经典继承 Object.create();
 
-
+String.prototype.split()  // 把一个字符串分割成字符串数组,第一个参数必选，根据参数分割，第二个参数可选，规定数组的长度
+Array.prototype.join()  // 把数组中的所有元素放入一个字符串，元素是通过指定的参数进行分隔
 
