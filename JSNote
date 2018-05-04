@@ -137,6 +137,8 @@ GET和POST都是http协议定义的。
 内存泄漏的几种情况：
 1.当页面中的元素被移除或替换时，若元素绑定的事件仍没有被移除，在IE中需要先手工移除事件，不然会造成内存泄漏
 
+创建对象的多种方式
+
 JavaScript中实现继承的方法：
 1.原型链（prototype chaining）
 2.call(),apply()
@@ -145,4 +147,41 @@ JavaScript中实现继承的方法：
 
 String.prototype.split()  // 把一个字符串分割成字符串数组,第一个参数必选，根据参数分割，第二个参数可选，规定数组的长度
 Array.prototype.join()  // 把数组中的所有元素放入一个字符串，元素是通过指定的参数进行分隔
+
+如何判断一个变量是Array类型？如何判断一个变量是Number类型？
+
+Object是引用类型嘛？引用类型和基本类型有什么区别？哪个是存在堆哪一个是存在栈上面的？
+
+解释一下事件冒泡和事件捕获
+
+事件委托（手写例子），事件冒泡和捕获，如何阻止冒泡？如何组织默认事件？
+
+new 一个对象具体做了什么
+
+=== 和 == , [] === [], undefined === undefined,[] == [], undefined == undefined
+
+'use strict' 严格模式的好处和坏处
+
+JS如何实现重载和多态
+
+如何实现图片滚动懒加载
+
+setTimeout和promise的执行顺序
+
+navigator对象，location和history
+
+js动画和css3动画比较
+
+DOM事件的绑定的几种方式
+
+DOM事件中target和currentTarget的区别
+
+手指点击可以触控的屏幕时，是什么事件
+
+什么是函数柯里化，以及在函数式编程的应用
+
+JS代码调试
+
+
+
 
