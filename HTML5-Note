@@ -18,12 +18,78 @@ opacity:设置元素的透明度
 visibility:hidden; 设置元素不可见，但会占据位置
 display:none; 让元素隐藏
 
+HTML5新特性
+  1).简洁的DOCTYPE，HTML5 只有一个简单的文档类型:<!DOCTYPE html>,表示浏览器会按照标准模式解析
+  2).简单易记的编码类型
+  3).脚本和链接无需type
+  4).语义化标签,<article>,<section>,<aside>,<hgroup>,<header>,<footer>,<nav>,<time>,<mark>,<figure>,<figcaption>
+  5).音频，视频,<audio>,<video>
+  6).新增input类型,color,email,url,number,range,search,tel,date,month,week,time,datetime,datetime-local
+  7).新属性：required,autofocus,list,autocomplete,placeholder
+  8).新增canvas标签
+
 
 语义化 HTML: 用最恰当的HTML 元素标记内容
 优点: 1.提高访问性
       2.SEO优化
       3.结构清晰，利于维护
-      
+      4.去掉或样式丢失的时候能让页面呈现清晰的结构
+
+音频，视频的区别
+
+canvas,用于在网页上绘制图形
+  <script>
+    var cx = document.getElementById('myCanvas');
+    var cxt = cx.getContext('2d'); //根据canvas元素创建context对象
+    cxt.fillStyle = "#ff0000";
+    cxt.beginPath();
+    cxt.arc(70,18,15,0,Math.PI*2,true);
+    cxt.closePath();
+    cxt.fill();
+  </script>
+
+浏览器的标准模式和怪异模式
+  在W3C标准出台之前，不同的浏览器在页面的渲染上没有同一的规范，产生了差异，即Quirks mode(怪异模式或兼容模式)；
+  当W3C标准出台之后，不同浏览器对页面的渲染有了统一的标准,即Strict mode（标准模式或严格模式）；
+  在标准模式中，浏览器根据规范呈现页面；在混杂模式中，页面以一种比较宽松的向后兼容的方式显示
+  
+xhtml和html的区别
+  html:超文本标记语言
+  xhtml:可扩展超文本标记语言，和html类似，语法上更加严格，要求正确嵌套，所有标签必须关闭，区分大小写，属性值要用双引号
+  
+使用data-*的好处
+  可以设置自定义属性
+  可以通过dataset属性来存取data-*自定义属性的值，element.dataset.*或jQuery的data(*)拿到，
+  data-之后的以连字符分割的多个单词组成的属性，获取的时候使用驼峰风格
+  
+meta标签
+  meta是html语言head区的一个辅助性标签。
+  meta标签的作用有：
+    声明文档使用的字符编码，
+    搜索引擎优化（seo），
+    定义页面使用语言，
+    自动刷新并指向新的页面，
+    实现网页转换时的动态效果，
+    控制页面缓冲，
+    网页定级评价，
+    控制网页显示的窗口等
+  meta标签的组成：
+   meta标签共有两个属性，它们分别是http-equiv属性和name属性，不同的属性又有不同的参数值，这些不同的参数值就实现了不同的网页功能   
+   name属性: 主要用于描述网页，与之对应的属性值为content，content中的内容主要是便于搜索引擎机器人查找信息和分类信息用的
+     主要参数有：keywords(关键字),description(网站内容描述),author(作者),generator(说明网站的采用的什么软件制作),viewport(适配移动设备)
+   http-equiv属性: 它可以向浏览器传回一些有用的信息，以帮助正确和精确地显示网页内容，与之对应的属性值为content，content中的内容其实就是各个参数的变量值  
+     主要参数有：
+     Expires(期限)，可以用于设定网页的到期时间。一旦网页过期，必须到服务器上重新传输
+     Pragma(cache模式)，禁止浏览器从本地计算机的缓存中访问页面内容
+     Refresh(刷新)，自动刷新并指向新页面
+   
+css js放置位置和原因
+  遇到js文件加载执行，将阻塞DOM树的构建；遇到css文件，将阻塞渲染树的构建
+  script标签最好放在</body>标签的前面，因为放在所有body中的标签后面就不会出现网页加载时出现空白的情况，可以持续的给用户提供视觉反馈
+  css标签应该放在<head></head>标签之间,浏览器边构建边渲染，效率要高的多
+  
+meta viewport原理
+
 通用容器： div -- 通用块级容器  span -- 短语内容无语义容器
 <title></title>: 简短，描述性，唯一（提升搜索引擎排名）
 
