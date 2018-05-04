@@ -54,6 +54,8 @@ parseInt()和parseFloat()方法只转换第一个无效字符之前的字符串�
 
 Object.prototype.hasOwnProperty() -- 判断一个对象是否包含自定义属性而不是原型链上的属性,hasOwnProperty 是 JavaScript 中唯一一个处理属性但是不查找原型链的函数
 
+call，apply，bind
+
 原型链：
 原型对象也是普通对象，并且也有可能有自己的原型，如果一个原型对象的原型不为null，我们就称为原型链
 原型链是针对构造函数的，比如我先创建了一个函数，然后通过一个变量new了这个函数，那么这个被new出来的函数就会继承创建出来的那个函数的属性，
