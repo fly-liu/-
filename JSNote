@@ -476,23 +476,44 @@ JS如何实现重载和多态：
 setTimeout和promise的执行顺序：
 浏览器读取script标签中的代码也是一个事件队列，Promise的任务会在当前事件循环末尾中执行，而setTimeout中的任务是在下一次事件循环执行
 
-navigator对象，location和history
+navigator对象，location和history：
+Navigator对象包含有关浏览器的信息
+Location 对象包含有关当前 URL 的信息
+History 对象包含用户（在浏览器窗口中）访问过的 URL，历史记录
 
-js动画和css3动画比较
+js动画和css3动画比较：
+在性能上会稍微好一些，浏览器会对CSS3的动画做一些优化，但兼容性不好，部分动画功能无法实现（如滚动动画，视差滚动等）
+JavaScript的动画兼容性好，控制能力很强，可以单帧的控制、变换
 
-DOM事件的绑定的几种方式
+DOM事件的绑定的几种方式：
+在DOM元素中直接绑定；
+在JavaScript代码中绑定；
+绑定事件监听函数。
 
-DOM事件中target和currentTarget的区别
+DOM事件中target和currentTarget的区别：
+event.target返回触发事件的元素
+event.currentTarget返回绑定事件的元素
 
-手指点击可以触控的屏幕时，是什么事件
+手指点击可以触控的屏幕时，是什么事件：
+touchstart事件 // 手指刚接触屏幕时触发 
+另外两个：
+touchmove // 手指在屏幕上移动时触发 
+touchend // 手指从屏幕上移开时触发
 
-什么是函数柯里化，以及在函数式编程的应用
+什么是函数柯里化，以及在函数式编程的应用：
+把接受多个参数的函数变换成接受一个单一参数（最初函数的第一个参数）的函数，并且返回接受余下的参数而且返回结果的新函数的技术。
+用途：
+延迟计算
+参数复用
+动态生成函数
 
-JS代码调试
+JS代码调试：
+浏览器断点调试
+Debugger断点
+DOM断点调试，事件监听器断点
 
-浏览器的全局变量有哪些
-
-浏览器同一时间能够从一个域名下载多少资源
+浏览器的全局变量有哪些：
+location,outerHeight,outerWidth,screenX,screenY...
 
 离职的原因：
 想提升自己的能力，接触新的技术；在那太闲，给我安排的事情不多，感觉发挥不了自己能力，没有进步；想接受更多的挑战
