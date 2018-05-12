@@ -11,7 +11,10 @@ sessionStorage,localStorage,cookie之间的区别
   2.cookie数据不能超过4KB，web Storage数据存储可以达到5M
   3.cookie只在设置的过期时间之前有效，即使关闭浏览器；sessionStorage仅在关闭浏览器之前有效；localStorage数据存储永远有效
   4.cookie和localStorage在同源同窗口中都是共享的；sessionStorage在不同的浏览器窗口不共享
-  
+
+JavaScript中会转换为false的对象：
+如果逻辑对象无初始值或者其值为 0、-0、null、""、false、undefined 或者 NaN，那么对象的值为 false
+
 JavaScript的typeof返回哪些数据类型?
 Object,number,function,boolean,string,undefined
 
