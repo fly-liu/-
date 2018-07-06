@@ -47,5 +47,12 @@ HTTP状态码：
 4** : 请求错误
 5** : 服务器错误
 
+实现组件的方式：
+1.seajs,requirejs
+2.nodejs
+3.ES6
+
+
 记：
 JSONP只支持GET请求
+ajax正常是只能请求服务器的数据，jax跨域容易遭受xss攻击
